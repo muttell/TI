@@ -409,10 +409,18 @@ namespace VolynetsTI1 {
 		array<String^>^ lines = System::IO::File::ReadAllLines(OpenFileDialog->FileName);
 
 		if (lines->Length >= 3) {
-
 			KeyTextBox->Text = lines[0];
 			InputRichTextBox->Text = lines[1];
-			ResultRichTextBox->Text = lines[2];
+
+			String^ result = "";
+
+			for (int i = 2; i < lines->Length; i++)
+			{
+				result += lines[i];
+				if (i < lines->Length - 1) 
+					result += "\n";
+			}
+			ResultRichTextBox->Text = result;
 		}
 	}
 
@@ -527,7 +535,7 @@ namespace VolynetsTI1 {
 			{
 				output = EncryptStolb(cleanedInput, cleanedKey);
 			}
-			else 
+			else
 			{
 				output = DecryptStolb(cleanedInput, cleanedKey);
 				if (!XCheckBox->Checked)
