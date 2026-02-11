@@ -58,55 +58,6 @@ namespace VolynetsTI1 {
 	private: System::Windows::Forms::Button^ ClearButton;
 	private: System::Windows::Forms::CheckBox^ XCheckBox;
 	private: System::Windows::Forms::Label^ XLabel;
-
-
-	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-
-	protected:
-
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -150,12 +101,12 @@ namespace VolynetsTI1 {
 			// ResultRichTextBox
 			// 
 			this->ResultRichTextBox->BackColor = System::Drawing::Color::MidnightBlue;
-			this->ResultRichTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->ResultRichTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ResultRichTextBox->ForeColor = System::Drawing::SystemColors::InactiveBorder;
-			this->ResultRichTextBox->Location = System::Drawing::Point(404, 280);
+			this->ResultRichTextBox->Location = System::Drawing::Point(404, 233);
 			this->ResultRichTextBox->Name = L"ResultRichTextBox";
-			this->ResultRichTextBox->Size = System::Drawing::Size(524, 129);
+			this->ResultRichTextBox->Size = System::Drawing::Size(524, 176);
 			this->ResultRichTextBox->TabIndex = 31;
 			this->ResultRichTextBox->Text = L"";
 			// 
@@ -205,6 +156,7 @@ namespace VolynetsTI1 {
 			this->VigenerRadioButton->TabIndex = 1;
 			this->VigenerRadioButton->Text = L"Алгоритм Виженера RUS";
 			this->VigenerRadioButton->UseVisualStyleBackColor = true;
+			this->VigenerRadioButton->CheckedChanged += gcnew System::EventHandler(this, &MyForm::ClearButton_Click);
 			// 
 			// StolbRadioButton
 			// 
@@ -217,6 +169,7 @@ namespace VolynetsTI1 {
 			this->StolbRadioButton->TabStop = true;
 			this->StolbRadioButton->Text = L"Столбцовый метод ENG";
 			this->StolbRadioButton->UseVisualStyleBackColor = true;
+			this->StolbRadioButton->CheckedChanged += gcnew System::EventHandler(this, &MyForm::StolbRadioButton_CheckedChanged_1);
 			// 
 			// ResultLabel
 			// 
@@ -225,7 +178,7 @@ namespace VolynetsTI1 {
 			this->ResultLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ResultLabel->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->ResultLabel->Location = System::Drawing::Point(400, 245);
+			this->ResultLabel->Location = System::Drawing::Point(400, 203);
 			this->ResultLabel->Name = L"ResultLabel";
 			this->ResultLabel->Size = System::Drawing::Size(98, 20);
 			this->ResultLabel->TabIndex = 30;
@@ -251,7 +204,7 @@ namespace VolynetsTI1 {
 			// 
 			this->SaveToFileButton->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->SaveToFileButton->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->SaveToFileButton->Location = System::Drawing::Point(781, 187);
+			this->SaveToFileButton->Location = System::Drawing::Point(778, 121);
 			this->SaveToFileButton->Name = L"SaveToFileButton";
 			this->SaveToFileButton->Size = System::Drawing::Size(190, 40);
 			this->SaveToFileButton->TabIndex = 27;
@@ -280,9 +233,9 @@ namespace VolynetsTI1 {
 			this->InputLabel->ForeColor = System::Drawing::SystemColors::ButtonFace;
 			this->InputLabel->Location = System::Drawing::Point(34, 337);
 			this->InputLabel->Name = L"InputLabel";
-			this->InputLabel->Size = System::Drawing::Size(145, 20);
+			this->InputLabel->Size = System::Drawing::Size(137, 20);
 			this->InputLabel->TabIndex = 24;
-			this->InputLabel->Text = L"Исходный текст";
+			this->InputLabel->Text = L"PlainText (ENG)";
 			// 
 			// KeyTextBox
 			// 
@@ -292,11 +245,8 @@ namespace VolynetsTI1 {
 			this->KeyTextBox->ForeColor = System::Drawing::SystemColors::InactiveBorder;
 			this->KeyTextBox->Location = System::Drawing::Point(38, 280);
 			this->KeyTextBox->Name = L"KeyTextBox";
-			this->KeyTextBox->ShortcutsEnabled = false;
 			this->KeyTextBox->Size = System::Drawing::Size(294, 28);
 			this->KeyTextBox->TabIndex = 23;
-			this->KeyTextBox->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::KeyTextBox_KeyDown);
-			this->KeyTextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::KeyTextBox_KeyPress);
 			// 
 			// KeyLabel
 			// 
@@ -307,9 +257,9 @@ namespace VolynetsTI1 {
 			this->KeyLabel->ForeColor = System::Drawing::SystemColors::ButtonFace;
 			this->KeyLabel->Location = System::Drawing::Point(35, 246);
 			this->KeyLabel->Name = L"KeyLabel";
-			this->KeyLabel->Size = System::Drawing::Size(38, 20);
+			this->KeyLabel->Size = System::Drawing::Size(93, 20);
 			this->KeyLabel->TabIndex = 22;
-			this->KeyLabel->Text = L"Key";
+			this->KeyLabel->Text = L"Key (ENG)";
 			// 
 			// FilePathTextBox
 			// 
@@ -317,7 +267,7 @@ namespace VolynetsTI1 {
 			this->FilePathTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FilePathTextBox->ForeColor = System::Drawing::SystemColors::InactiveBorder;
-			this->FilePathTextBox->Location = System::Drawing::Point(684, 102);
+			this->FilePathTextBox->Location = System::Drawing::Point(681, 36);
 			this->FilePathTextBox->Name = L"FilePathTextBox";
 			this->FilePathTextBox->ReadOnly = true;
 			this->FilePathTextBox->Size = System::Drawing::Size(371, 21);
@@ -327,7 +277,7 @@ namespace VolynetsTI1 {
 			// 
 			this->ChooseFileButton->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ChooseFileButton->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->ChooseFileButton->Location = System::Drawing::Point(781, 135);
+			this->ChooseFileButton->Location = System::Drawing::Point(778, 69);
 			this->ChooseFileButton->Name = L"ChooseFileButton";
 			this->ChooseFileButton->Size = System::Drawing::Size(190, 40);
 			this->ChooseFileButton->TabIndex = 20;
@@ -345,15 +295,12 @@ namespace VolynetsTI1 {
 			this->InputRichTextBox->BackColor = System::Drawing::Color::MidnightBlue;
 			this->InputRichTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->InputRichTextBox->ForeColor = System::Drawing::SystemColors::InactiveBorder;
+			this->InputRichTextBox->ForeColor = System::Drawing::SystemColors::ControlLightLight;
 			this->InputRichTextBox->Location = System::Drawing::Point(39, 378);
 			this->InputRichTextBox->Name = L"InputRichTextBox";
-			this->InputRichTextBox->ShortcutsEnabled = false;
 			this->InputRichTextBox->Size = System::Drawing::Size(293, 96);
 			this->InputRichTextBox->TabIndex = 25;
 			this->InputRichTextBox->Text = L"";
-			this->InputRichTextBox->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::InputRichTextBox_KeyDown);
-			this->InputRichTextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::InputRichTextBox_KeyPress);
 			// 
 			// MetodLabel
 			// 
@@ -439,7 +386,7 @@ namespace VolynetsTI1 {
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"TI-1 5v";
+			this->Text = L"TI-1 4v";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->CipherGroupBox->ResumeLayout(false);
 			this->CipherGroupBox->PerformLayout();
@@ -462,10 +409,18 @@ namespace VolynetsTI1 {
 		array<String^>^ lines = System::IO::File::ReadAllLines(OpenFileDialog->FileName);
 
 		if (lines->Length >= 3) {
-
 			KeyTextBox->Text = lines[0];
 			InputRichTextBox->Text = lines[1];
-			ResultRichTextBox->Text = lines[2];
+
+			String^ result = "";
+
+			for (int i = 2; i < lines->Length; i++)
+			{
+				result += lines[i];
+				if (i < lines->Length - 1) 
+					result += "\n";
+			}
+			ResultRichTextBox->Text = result;
 		}
 	}
 
@@ -486,90 +441,167 @@ namespace VolynetsTI1 {
 	}
 
 	private: System::Void ExecuteButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
 		String^ input = InputRichTextBox->Text;
 		String^ key = KeyTextBox->Text;
 
 		if (String::IsNullOrWhiteSpace(key)) {
-			MessageBox::Show("Пожалуйста, введите ключ для шифрования/дешифрования.", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show("Пожалуйста, введите ключ.", "Ошибка",
+				MessageBoxButtons::OK, MessageBoxIcon::Error);
 			return;
 		}
 
 		if (String::IsNullOrWhiteSpace(input)) {
-			MessageBox::Show("Пожалуйста, введите текст для обработки.", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show("Пожалуйста, введите текст.", "Ошибка",
+				MessageBoxButtons::OK, MessageBoxIcon::Error);
 			return;
 		}
 
-		if (key->Length == 1) {
-			MessageBox::Show("Ключ должен содержать минимум 2 символа.", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		if (key->Length < 2) {
+			MessageBox::Show("Ключ должен содержать минимум 2 символа.", "Ошибка",
+				MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+
+		array<wchar_t>^ alphabetEng = gcnew array<wchar_t>
+		{
+			L'A', L'B', L'C', L'D', L'E', L'F', L'G', L'H', L'I', L'J',
+				L'K', L'L', L'M', L'N', L'O', L'P', L'Q', L'R', L'S', L'T',
+				L'U', L'V', L'W', L'X', L'Y', L'Z'
+		};
+
+		array<wchar_t>^ alphabetRus = gcnew array<wchar_t>
+		{
+			L'А', L'Б', L'В', L'Г', L'Д', L'Е', L'Ё', L'Ж', L'З',
+				L'И', L'Й', L'К', L'Л', L'М', L'Н', L'О', L'П', L'Р',
+				L'С', L'Т', L'У', L'Ф', L'Х', L'Ц', L'Ч', L'Ш', L'Щ',
+				L'Ъ', L'Ы', L'Ь', L'Э', L'Ю', L'Я'
+		};
+
+		String^ cleanedInput = "";
+		String^ cleanedKey = "";
+		String^ invalidInput = "";
+		String^ invalidKey = "";
+
+		array<wchar_t>^ alphabet;
+
+		if (StolbRadioButton->Checked)
+			alphabet = alphabetEng;
+		else
+			alphabet = alphabetRus;
+
+		input = input->ToUpper();
+		for (int i = 0; i < input->Length; i++)
+		{
+			wchar_t ch = input[i];
+			if (Array::IndexOf(alphabet, ch) >= 0)
+				cleanedInput += ch;
+			else
+				invalidInput += ch;
+		}
+
+		key = key->ToUpper();
+		for (int i = 0; i < key->Length; i++)
+		{
+			wchar_t ch = key[i];
+			if (Array::IndexOf(alphabet, ch) >= 0)
+				cleanedKey += ch;
+			else
+				invalidKey += ch;
+		}
+
+		if (invalidInput->Length > 0)
+			MessageBox::Show("В тексте обнаружены недопустимые символы:\n" + invalidInput +
+				"\nОни удалены.", "Предупреждение",
+				MessageBoxButtons::OK, MessageBoxIcon::Warning);
+
+		if (invalidKey->Length > 0)
+			MessageBox::Show("В ключе обнаружены недопустимые символы:\n" + invalidKey +
+				"\nОни удалены.", "Предупреждение",
+				MessageBoxButtons::OK, MessageBoxIcon::Warning);
+
+		if (cleanedKey->Length < 2)
+		{
+			MessageBox::Show("Ключ после очистки слишком короткий.", "Ошибка",
+				MessageBoxButtons::OK, MessageBoxIcon::Error);
 			return;
 		}
 
 		String^ output = "";
 
-		if (StolbRadioButton->Checked) {
-			if (EncryptionRadioButton->Checked) {
-				output = EncryptStolb(input, key);
+		if (StolbRadioButton->Checked)
+		{
+			if (EncryptionRadioButton->Checked)
+			{
+				output = EncryptStolb(cleanedInput, cleanedKey);
 			}
-			else if (DecryptionRadioButton->Checked) {
-				output = DecryptStolb(input, key);
+			else
+			{
+				output = DecryptStolb(cleanedInput, cleanedKey);
+				if (!XCheckBox->Checked)
+				{
+					output = output->TrimEnd('X');
+				}
 			}
 		}
-		else if (VigenerRadioButton->Checked) {
-			if (EncryptionRadioButton->Checked) {
-				output = EncryptVigener(input, key);
-			}
-			else if (DecryptionRadioButton->Checked) {
-				output = DecryptVigener(input, key);
-			}
+		else
+		{
+			if (EncryptionRadioButton->Checked)
+				output = EncryptVigener(cleanedInput, cleanedKey);
+			else
+				output = DecryptVigener(cleanedInput, cleanedKey);
 		}
 
-		ResultRichTextBox->Text = output;
+		ResultRichTextBox->Clear();
+		ResultRichTextBox->AppendText("Исходный текст (валидный):\n" + cleanedInput + "\n\n");
+		ResultRichTextBox->AppendText("Очищенный ключ:\n" + cleanedKey + "\n\n");
+		ResultRichTextBox->AppendText("Результат:\n" + output);
 	}
 
-	private: System::Void InputRichTextBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-		// backspace
-		if (e->KeyChar == 8)
-			return;
+		   //private: System::Void InputRichTextBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		   //	// backspace
+		   //	if (e->KeyChar == 8)
+		   //		return;
 
-		if (StolbRadioButton->Checked) {
-			if (!((e->KeyChar >= 'A' && e->KeyChar <= 'Z') || (e->KeyChar >= 'a' && e->KeyChar <= 'z') || Char::IsWhiteSpace(e->KeyChar))) {
-				e->Handled = true;
-			}
-			return;
-		}
+		   //	if (StolbRadioButton->Checked) {
+		   //		//if (!((e->KeyChar >= 'A' && e->KeyChar <= 'Z') || (e->KeyChar >= 'a' && e->KeyChar <= 'z') || Char::IsWhiteSpace(e->KeyChar))) {
+		   //		//	e->Handled = true;
+		   //		//}
+		   //		return;
+		   //	}
 
-		if (VigenerRadioButton->Checked) {
-			if (!((e->KeyChar >= 'А' && e->KeyChar <= 'Я') || (e->KeyChar >= 'а' && e->KeyChar <= 'я') || Char::IsWhiteSpace(e->KeyChar))) {
-				e->Handled = true;
-			}
-			return;
-		}
-	}
+		   //	if (VigenerRadioButton->Checked) {
+		   //		//if (!((e->KeyChar >= 'А' && e->KeyChar <= 'Я') || (e->KeyChar >= 'а' && e->KeyChar <= 'я') || Char::IsWhiteSpace(e->KeyChar))) {
+		   //		//	e->Handled = true;
+		   //		//}
+		   //		return;
+		   //	}
+		   //}
 
-	private: System::Void KeyTextBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		   //private: System::Void KeyTextBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
-		if (e->KeyChar == 8)
-			return;
+		   //	if (e->KeyChar == 8)
+		   //		return;
 
-		if (StolbRadioButton->Checked) {
-			if (!((e->KeyChar >= 'A' && e->KeyChar <= 'Z') ||
-				(e->KeyChar >= 'a' && e->KeyChar <= 'z'))) {
+		   //	if (StolbRadioButton->Checked) {
+		   //		//if (!((e->KeyChar >= 'A' && e->KeyChar <= 'Z') ||
+		   //		//	(e->KeyChar >= 'a' && e->KeyChar <= 'z'))) {
 
-				e->Handled = true;
-			}
-			return;
-		}
+		   //		//	e->Handled = true;
+		   //		//}
+		   //		return;
+		   //	}
 
-		//if (VigenerRadioButton->Checked) {
-		//	if (!((e->KeyChar >= 'А' && e->KeyChar <= 'Я') || 
-		//		(e->KeyChar == L'Ё') || (e->KeyChar == L'ё') ||
-		//		(e->KeyChar >= 'а' && e->KeyChar <= 'я'))) {
+		   //	if (VigenerRadioButton->Checked) {
+		   //		//	if (!((e->KeyChar >= 'А' && e->KeyChar <= 'Я') || 
+		   //		//		(e->KeyChar == L'Ё') || (e->KeyChar == L'ё') ||
+		   //		//		(e->KeyChar >= 'а' && e->KeyChar <= 'я'))) {
 
-		//		e->Handled = true;
-		//	}
-		//	return;
-		//}
-	}
+		   //		//		e->Handled = true;
+		   //		//	}
+		   //		return;
+		   //	}
+		   //}
 
 		   String^ EncryptStolb(String^ input, String^ key)
 		   {
@@ -693,28 +725,74 @@ namespace VolynetsTI1 {
 			   input = input->ToUpper();
 			   key = key->ToUpper();
 
+			   String^ cleanedInput = "";
+			   String^ cleanedKey = "";
+			   String^ invalidInput = "";
+			   String^ invalidKey = "";
+
+			   // очистка текста
+			   for (int i = 0; i < input->Length; i++)
+			   {
+				   wchar_t ch = input[i];
+				   if (Array::IndexOf(alphabet, ch) >= 0)
+					   cleanedInput += ch;
+				   else
+					   invalidInput += ch;
+			   }
+
+			   // очистка ключа
+			   for (int i = 0; i < key->Length; i++)
+			   {
+				   wchar_t ch = key[i];
+				   if (Array::IndexOf(alphabet, ch) >= 0)
+					   cleanedKey += ch;
+				   else
+					   invalidKey += ch;
+			   }
+
+			   if (invalidInput->Length > 0)
+			   {
+				   MessageBox::Show(
+					   "В тексте обнаружены недопустимые символы:\n" + invalidInput +
+					   "\nОни удалены.", "Предупреждение",
+					   MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			   }
+
+			   if (invalidKey->Length > 0)
+			   {
+				   MessageBox::Show(
+					   "В ключе обнаружены недопустимые символы:\n" + invalidKey +
+					   "\nОни удалены.", "Предупреждение",
+					   MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			   }
+
+			   if (cleanedKey->Length < 2)
+			   {
+				   MessageBox::Show("Ключ после очистки слишком короткий.", "Ошибка",
+					   MessageBoxButtons::OK, MessageBoxIcon::Error);
+				   return "";
+			   }
+
+			   // прогрессивный ключ
+			   array<int>^ keyPos = gcnew array<int>(cleanedKey->Length);
+			   for (int i = 0; i < cleanedKey->Length; i++)
+				   keyPos[i] = Array::IndexOf(alphabet, cleanedKey[i]);
+
 			   String^ output = "";
 			   int keyIndex = 0;
 
-			   for (int i = 0; i < input->Length; i++) {
+			   for (int i = 0; i < cleanedInput->Length; i++)
+			   {
+				   int p = Array::IndexOf(alphabet, cleanedInput[i]);
+				   int k = keyPos[keyIndex];
 
-				   wchar_t ch = input[i];
+				   int c = (p + k) % N;
+				   output += alphabet[c];
 
-				   int inputPos = Array::IndexOf(alphabet, ch);
-				   if (inputPos < 0)
-					   continue; // ← выбрасываем символ полностью
+				   // прогрессия ключа
+				   keyPos[keyIndex] = (keyPos[keyIndex] + 1) % N;
 
-				   int keyPos = Array::IndexOf(alphabet, key[keyIndex]);
-				   if (keyPos < 0) {
-					   keyIndex = (keyIndex + 1) % key->Length;
-					   i--;
-					   continue;
-				   }
-
-				   int cipherPos = (inputPos + keyPos) % N;
-				   output += alphabet[cipherPos];
-
-				   keyIndex = (keyIndex + 1) % key->Length;
+				   keyIndex = (keyIndex + 1) % cleanedKey->Length;
 			   }
 
 			   return output;
@@ -722,21 +800,103 @@ namespace VolynetsTI1 {
 
 		   String^ DecryptVigener(String^ input, String^ key)
 		   {
-			   // TODO: реализовать расшифровку Виженера
-			   return input; // пока просто возвращаем исходный текст
+			   array<wchar_t>^ alphabet = gcnew array<wchar_t>
+			   {
+				   L'А', L'Б', L'В', L'Г', L'Д', L'Е', L'Ё', L'Ж', L'З',
+					   L'И', L'Й', L'К', L'Л', L'М', L'Н', L'О', L'П', L'Р',
+					   L'С', L'Т', L'У', L'Ф', L'Х', L'Ц', L'Ч', L'Ш', L'Щ',
+					   L'Ъ', L'Ы', L'Ь', L'Э', L'Ю', L'Я'
+			   };
+
+			   int N = alphabet->Length;
+
+			   input = input->ToUpper();
+			   key = key->ToUpper();
+
+			   String^ cleanedInput = "";
+			   String^ cleanedKey = "";
+			   String^ invalidInput = "";
+			   String^ invalidKey = "";
+
+			   // очистка текста
+			   for (int i = 0; i < input->Length; i++)
+			   {
+				   wchar_t ch = input[i];
+				   if (Array::IndexOf(alphabet, ch) >= 0)
+					   cleanedInput += ch;
+				   else
+					   invalidInput += ch;
+			   }
+
+			   // очистка ключа
+			   for (int i = 0; i < key->Length; i++)
+			   {
+				   wchar_t ch = key[i];
+				   if (Array::IndexOf(alphabet, ch) >= 0)
+					   cleanedKey += ch;
+				   else
+					   invalidKey += ch;
+			   }
+
+			   if (invalidInput->Length > 0)
+			   {
+				   MessageBox::Show(
+					   "В тексте обнаружены недопустимые символы:\n" + invalidInput +
+					   "\nОни удалены.", "Предупреждение",
+					   MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			   }
+
+			   if (invalidKey->Length > 0)
+			   {
+				   MessageBox::Show(
+					   "В ключе обнаружены недопустимые символы:\n" + invalidKey +
+					   "\nОни удалены.", "Предупреждение",
+					   MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			   }
+
+			   if (cleanedKey->Length < 2)
+			   {
+				   MessageBox::Show("Ключ после очистки слишком короткий.", "Ошибка",
+					   MessageBoxButtons::OK, MessageBoxIcon::Error);
+				   return "";
+			   }
+
+			   // прогрессивный ключ
+			   array<int>^ keyPos = gcnew array<int>(cleanedKey->Length);
+			   for (int i = 0; i < cleanedKey->Length; i++)
+				   keyPos[i] = Array::IndexOf(alphabet, cleanedKey[i]);
+
+			   String^ output = "";
+			   int keyIndex = 0;
+
+			   for (int i = 0; i < cleanedInput->Length; i++)
+			   {
+				   int c = Array::IndexOf(alphabet, cleanedInput[i]);
+				   int k = keyPos[keyIndex];
+
+				   int p = (c - k + N) % N;
+				   output += alphabet[p];
+
+				   // прогрессия ключа
+				   keyPos[keyIndex] = (keyPos[keyIndex] + 1) % N;
+
+				   keyIndex = (keyIndex + 1) % cleanedKey->Length;
+			   }
+
+			   return output;
 		   }
 
-	private: System::Void InputRichTextBox_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		if (e->Control && e->KeyCode == Keys::V) e->SuppressKeyPress = true;
-		if (e->Shift && e->KeyCode == Keys::Insert) e->SuppressKeyPress = true;
-		if (e->Control && e->KeyCode == Keys::Insert) e->SuppressKeyPress = true;
-	}
+		   //private: System::Void InputRichTextBox_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		   //	//if (e->Control && e->KeyCode == Keys::V) e->SuppressKeyPress = true;
+		   //	//if (e->Shift && e->KeyCode == Keys::Insert) e->SuppressKeyPress = true;
+		   //	//if (e->Control && e->KeyCode == Keys::Insert) e->SuppressKeyPress = true;
+		   //}
 
-	private: System::Void KeyTextBox_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		if (e->Control && e->KeyCode == Keys::V) e->SuppressKeyPress = true;
-		if (e->Shift && e->KeyCode == Keys::Insert) e->SuppressKeyPress = true;
-		if (e->Control && e->KeyCode == Keys::Insert) e->SuppressKeyPress = true;
-	}
+		   //private: System::Void KeyTextBox_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		   //	//if (e->Control && e->KeyCode == Keys::V) e->SuppressKeyPress = true;
+		   //	//if (e->Shift && e->KeyCode == Keys::Insert) e->SuppressKeyPress = true;
+		   //	//if (e->Control && e->KeyCode == Keys::Insert) e->SuppressKeyPress = true;
+		   //}
 
 	private: System::Void ClearButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		InputRichTextBox->Clear();
@@ -749,5 +909,35 @@ namespace VolynetsTI1 {
 		usePaddingX = XCheckBox->Checked;
 	}
 
+	private: System::Void StolbRadioButton_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		InputRichTextBox->Clear();
+		KeyTextBox->Clear();
+		ResultRichTextBox->Clear();
+		FilePathTextBox->Clear();
+	}
+	private: System::Void StolbRadioButton_CheckedChanged_1(System::Object^ sender, System::EventArgs^ e) {
+		ClearButton_Click(sender, e);
+
+		if (VigenerRadioButton->Checked) {
+			KeyLabel->Text = "Ключ (русский)";
+			InputLabel->Text = "Исходный текст (русский)";
+		}
+		else if (StolbRadioButton->Checked) {
+			KeyLabel->Text = "Key (ENG)";
+			InputLabel->Text = "PlainText (ENG)";
+
+		}
+
+		if (VigenerRadioButton->Checked) {
+			XCheckBox->Visible = false;
+			XLabel->Visible = false;
+		}
+
+		if (StolbRadioButton->Checked) {
+			XCheckBox->Visible = true;
+			XLabel->Visible = true;
+		}
+
+	}
 	};
 }
