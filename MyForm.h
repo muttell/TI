@@ -233,9 +233,9 @@ namespace VolynetsTI1 {
 			this->InputLabel->ForeColor = System::Drawing::SystemColors::ButtonFace;
 			this->InputLabel->Location = System::Drawing::Point(34, 337);
 			this->InputLabel->Name = L"InputLabel";
-			this->InputLabel->Size = System::Drawing::Size(200, 20);
+			this->InputLabel->Size = System::Drawing::Size(137, 20);
 			this->InputLabel->TabIndex = 24;
-			this->InputLabel->Text = L"Исходный текст (ENG)";
+			this->InputLabel->Text = L"PlainText (ENG)";
 			// 
 			// KeyTextBox
 			// 
@@ -295,7 +295,7 @@ namespace VolynetsTI1 {
 			this->InputRichTextBox->BackColor = System::Drawing::Color::MidnightBlue;
 			this->InputRichTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->InputRichTextBox->ForeColor = System::Drawing::SystemColors::InactiveBorder;
+			this->InputRichTextBox->ForeColor = System::Drawing::SystemColors::ControlLightLight;
 			this->InputRichTextBox->Location = System::Drawing::Point(39, 378);
 			this->InputRichTextBox->Name = L"InputRichTextBox";
 			this->InputRichTextBox->Size = System::Drawing::Size(293, 96);
